@@ -26,13 +26,11 @@ export class SVGImport extends LitElement {
   
   
   extractPathFromSVG() {
-    console.log(this.rawSVG)
     const parser = new DOMParser();
     const doc = parser.parseFromString(this.rawSVG, 'image/svg+xml');
     const pathElement = doc.querySelectorAll('path');
     if (pathElement.length > 0) {
       this.path = pathElement[0].getAttribute('d') || this.path;
-      console.log(this.path);
     }
     if (pathElement.length > 1) {
       pathElement.forEach(element => {
@@ -48,11 +46,10 @@ export class SVGImport extends LitElement {
   }
 
   static styles = css`
-    body {
-        height: 100vh;
-    }
-    svg {
-        width: 100%;
+    :host {
+      display: block;
+      height: 100%;
+      width: 100%;
     }
     `
 }
