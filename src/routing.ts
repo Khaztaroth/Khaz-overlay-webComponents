@@ -24,5 +24,12 @@ router.setRoutes([
         action: async () => {
             await import('./routes/screens.ts');
         },
+    },
+    {
+        path: '/games_pastebin',
+        component: 'game-view-pastebin',
+        action: async () => {
+            await import('./routes/screens.ts');
+        },
     }
 ]);

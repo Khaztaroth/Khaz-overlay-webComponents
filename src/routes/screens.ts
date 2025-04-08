@@ -2,7 +2,13 @@ import { LitElement, html } from "lit";
 import { customElement } from "lit/decorators.js";
 
 import "../svg-parser/svg-import";
+import "../svg-parser/svg-import-pastebin";
 import gamesSVG from "../assets/game_rectangles.svg?raw";
+
+const params = new URLSearchParams(window.location.search);
+const pastebinID = params.get('pastebin-id') || '';
+const colorStart = params.get('color-start') || '';
+const colorEnd = params.get('color-end') || '';
 
 @customElement('game-view')
 export class GameRectangles extends LitElement {
@@ -16,6 +22,22 @@ export class GameRectangles extends LitElement {
 declare global {
     interface HTMLElementTagNameMap {
         "game-view": GameRectangles;
+    }
+}
+
+@customElement('game-view-pastebin')
+export class GameRectanglesPastebin extends LitElement {
+
+    render() {
+        return html`
+            <svg-import-pastebin pastebinURL="https://pastebin.com/raw/${pastebinID}" colorStart=${colorStart} colorEnd=${colorEnd}></svg-import-pastebin>
+        `
+    }
+}
+
+declare global {
+    interface HTMLElementTagNameMap {
+        "game-view-pastebin": GameRectanglesPastebin;
     }
 }
 
