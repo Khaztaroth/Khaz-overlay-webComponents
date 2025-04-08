@@ -26,8 +26,8 @@ router.setRoutes([
         },
     },
     {
-        path: '/games_pastebin',
-        component: 'game-view-pastebin',
+        path: '/pastebin-overlay',
+        component: 'pastebin-overlay',
         action: async () => {
             await import('./routes/screens.ts');
         },

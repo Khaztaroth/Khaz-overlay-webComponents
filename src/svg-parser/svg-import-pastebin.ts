@@ -10,15 +10,38 @@ export class SVGImport extends LitElement {
   path  = "";
   strokeWidth = "5px";
 
-  @property() pastebinURL;
-  @property() colorStart;
-  @property() colorEnd;
+  @property() pastebinID ='';
+  @property() colorStart = "rgb(244, 177, 79)";
+  @property() colorEnd = "rgb(169, 91, 234)";
+
+  connectedCallback() {
+    super.connectedCallback();
+    this.updateURLParams();
+    this.fetchPathData();
+  }
   
+
+  updateURLParams() {
+    const params = new URLSearchParams(window.location.search);
+    const pastebinID= params.get('pastebin-id') || '';
+    this.pastebinID = `https://pastebin.com/raw/${pastebinID}`;
+    this.colorStart = params.get('color-start') || 'rgb(244, 177, 79)';
+    this.colorEnd = params.get('color-end') || 'rgb(169, 91, 234)';
+  }
+
+  async fetchPathData() {
+    const pathData = await this.gamesPastebinSVG(this.pastebinID);
+    if (pathData) {
+      this.path = pathData;
+      this.requestUpdate()
+    }
+  }
+   
   constructor() {
     super();
-    this.pastebinURL = '';
-    this.colorStart = '';
-    this.colorEnd = '';
+    this.pastebinID;
+    this.colorStart;
+    this.colorEnd;
   }
   
   async gamesPastebinSVG (url: string) {
@@ -42,20 +65,7 @@ export class SVGImport extends LitElement {
         console.error("Error fetching SVG:", error);
     }
   }
-
-  connectedCallback() {
-    super.connectedCallback();
-    this.fetchPathData();
-  }
-  
-  async fetchPathData() {
-    const pathData = await this.gamesPastebinSVG(this.pastebinURL);
-    if (pathData) {
-      this.path = pathData;
-      this.requestUpdate()
-    }
-  }
-  
+ 
   render() {
     return html`
       ${this.path ? html`
