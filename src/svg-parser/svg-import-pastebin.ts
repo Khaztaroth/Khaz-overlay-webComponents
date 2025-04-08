@@ -46,7 +46,7 @@ export class SVGImport extends LitElement {
   
   async gamesPastebinSVG (url: string) {
     try {
-            const pathData = await fetch(`https://corsproxy.io/?url=${url}`)
+            const pathData = await fetch(`${url}`)
             .then(response => response.text())
             .then(data => {
                 const parser = new DOMParser();
