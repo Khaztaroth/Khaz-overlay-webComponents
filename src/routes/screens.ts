@@ -7,8 +7,8 @@ import gamesSVG from "../assets/game_rectangles.svg?raw";
 
 const params = new URLSearchParams(window.location.search);
 const pastebinID = params.get('pastebin-id') || '';
-const colorStart = params.get('color-start') || '';
-const colorEnd = params.get('color-end') || '';
+const colorStart = params.get('color-start') || 'rgb(244, 177, 79)';
+const colorEnd = params.get('color-end') || 'rgb(169, 91, 234)';
 
 @customElement('game-view')
 export class GameRectangles extends LitElement {

@@ -17,8 +17,8 @@ export class SVGImport extends LitElement {
   constructor() {
     super();
     this.pastebinURL = '';
-    this.colorStart = 'rgb(244, 177, 79)';
-    this.colorEnd = 'rgb(169, 91, 234)';
+    this.colorStart = '';
+    this.colorEnd = '';
   }
   
   async gamesPastebinSVG (url: string) {
