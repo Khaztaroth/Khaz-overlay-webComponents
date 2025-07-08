@@ -7,9 +7,20 @@
     <title>Vite + Lit + TS</title>
     <link rel="stylesheet" href="./src/index.css" />
     <script type="module" src="/src/routing.ts"></script>
+    <script type="module" src="/src/elements/chat-element.ts"></script>
   </head>
   <body>
     <router></router>
-    <div id="outlet"></div>
+    <div id="outlet">
+      <div class="game-section">
+      </div>
+      <div class="chat-section">
+        <!-- <chat-element></chat-element> -->
+      </div>
+      <div class="cam-section">
+      </div>
+      <div class="extra-section">
+      </div>
+    </div>
   </body>
 </html>

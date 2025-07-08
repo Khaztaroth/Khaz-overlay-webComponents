@@ -41,7 +41,14 @@ export class SVGImport extends LitElement {
 
   render() {
     return html`
-          <svg-element colorStart=${this.colorStart} colorEnd=${this.colorEnd} speed=${this.speed} path=${this.path} strokeWidth=${this.strokeWidth}></svg-element>
+          
+          <svg-element 
+          colorStart=${this.colorStart} 
+          colorEnd=${this.colorEnd} 
+          speed=${this.speed} 
+          path=${this.path} 
+          strokeWidth=${this.strokeWidth}>
+          </svg-element>
     `;
   }
 
@@ -50,6 +57,9 @@ export class SVGImport extends LitElement {
       display: block;
       height: 100%;
       width: 100%;
+      position: fixed;
+      top: 0;
+      left:0;
     }
     `
 }

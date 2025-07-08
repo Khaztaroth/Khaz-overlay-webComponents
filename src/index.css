@@ -10,6 +10,51 @@ html, body {
 #outlet {
   height: 100%;
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(36, 1fr);
+  grid-template-rows: repeat(30, 4fr);
+  column-gap: 10px;
+  row-gap: 8px;
+}
+
+.game-section{
+  /* background-color: black; */
+
+  width: 100%;
+  height: 100%;
+
+  grid-row-start: 1;
+  grid-row-end: 26;
+  grid-column-start: 1;
+  grid-column-end: 31;
+}
+.chat-section{
+  /* background-color: aqua; */
+  width: 2fr;
+  height: 100%;
+  
+  grid-row-start: 1;
+  grid-row-end: 22;
+  grid-column-start: 31;
+  grid-column-end: 37;
+}
+.cam-section{
+  /* background-color: salmon; */
+  width: 100%;
+  height: 100%;
+
+  grid-row-start: 22;
+  grid-row-end: 31;
+  grid-column-start: 31;
+  grid-column-end: 37;
+}
+.extra-section{
+  /* background-color: purple; */
+  width: 100%;
+  height: 100%;
+
+  grid-row-start: 26;
+  grid-row-end: 31;
+  grid-column-start: 1;
+  grid-column-end: 31;
 }

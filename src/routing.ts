@@ -25,11 +25,4 @@ router.setRoutes([
             await import('./routes/screens.ts');
         },
     },
-    {
-        path: '/pastebin-overlay',
-        component: 'pastebin-overlay',
-        action: async () => {
-            await import('./routes/screens.ts');
-        },
-    }
 ]);
